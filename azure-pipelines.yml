@@ -59,4 +59,4 @@ stages:
           azureSubscription: 'Azure Pass - Sponsorship(1e8cbd15-340d-46c4-98de-4233a900ab22)'
           appType: 'webApp'
           WebAppName: 'New AppDeploy'
-          packageForLinux: '$(System.DefaultWorkingDirectory)/drop/*.zip'
+          packageForLinux: '$(System.ArtifactsDirectory)/drop/*.zip'
