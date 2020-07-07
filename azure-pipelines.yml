@@ -24,13 +24,7 @@ stages:
     - task: NuGetCommand@2
       inputs:
         restoreSolution: '$(solution)'
-    - task: SonarCloudPrepare@1
-      inputs:
-        SonarCloud: 'SonarCloud'
-        organization: 'sonar-cloud-demo'
-        scannerMode: 'MSBuild'
-        projectKey: 'webappdev'
-        projectName: 'webappdev'
+
     - task: VSBuild@1
       inputs:
         solution: '$(solution)'
@@ -64,4 +58,4 @@ stages:
          WebAppName: 'newwebapp30'
          packageForLinux: '$(System.ArtifactsDirectory)/drop/*.zip'
          
-     - task: SonarCloudAnalyze@1
+    
