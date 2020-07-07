@@ -36,3 +36,10 @@ stages:
       inputs:
         platform: '$(buildPlatform)'
         configuration: '$(buildConfiguration)'
+- stage: Deploy
+  jobs:
+   - job: Deploy
+     pool:
+       vmImage: 'windows-latest'
+     steps:
+     -
