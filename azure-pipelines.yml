@@ -38,7 +38,7 @@ stages:
         configuration: '$(buildConfiguration)'
     - task: PublishBuildArtifacts@1
       inputs:
-        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        PathtoPublish: '$(System.ArtifactsDirectory)/drop/*.zip'
         ArtifactName: 'drop'
         publishLocation: 'Container'
 - stage: Deploy
