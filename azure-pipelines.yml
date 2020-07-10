@@ -37,25 +37,6 @@ stages:
             PathtoPublish: '$(Build.ArtifactStagingDirectory)'
             ArtifactName: 'drop'
             publishLocation: 'Container'
+            
 
-- stage: Deploy
-  jobs:
-   - job: Deploy
-     pool:
-       vmImage: 'windows-latest'
-     steps:
-     - task: DownloadBuildArtifacts@0
-       inputs:
-         buildType: 'current'
-         downloadType: 'single'
-         downloadPath: '$(System.ArtifactsDirectory)'
-         artifactName: 'drop'
-     - task: AzureRmWebAppDeployment@4
-       inputs:
-         ConnectionType: 'AzureRM'
-         azureSubscription: 'Azure Pass - Sponsorship(1e8cbd15-340d-46c4-98de-4233a900ab22)'
-         appType: 'webApp'
-         WebAppName: 'newwebapp30'
-         packageForLinux: '$(System.ArtifactsDirectory)/drop/*.zip'
-         
     
