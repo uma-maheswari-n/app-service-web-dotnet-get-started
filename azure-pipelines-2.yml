@@ -48,7 +48,7 @@ variables:
     jobs:
     - job: Deploy
       pool:
-       vmImage: 'vs2017-win2016'
+       vmImage: 'windows-latest'
       steps:
       - task: DownloadBuildArtifacts@0
         inputs:
