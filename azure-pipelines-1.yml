@@ -57,4 +57,17 @@ stages:
          appType: 'webApp'
          WebAppName: 'newwebapp30'
          packageForLinux: '$(System.ArtifactsDirectory)/drop/*.zip'
-         
+     - task: ArtifactoryGenericUpload@2
+       inputs:
+             artifactoryService: 'JFrogDevOps'
+             specSource: 'taskConfiguration'
+             fileSpec: |
+               {
+                 "files": [
+                   {
+                     "pattern": "$(Build.ArtifactStagingDirectory)/",
+                     "target": "example-repo-local/files"
+                   }
+                 ]
+               }
+             failNoOp: false
