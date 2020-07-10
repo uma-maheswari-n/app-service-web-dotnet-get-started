@@ -25,6 +25,13 @@ stages:
       inputs:
         restoreSolution: '$(solution)'
 
+    - task: SonarCloudPrepare@1
+      inputs:
+                SonarCloud: 'SonarCloud'
+                organization: 'sonar-cloud-demo'
+                scannerMode: 'MSBuild'
+                projectKey: 'webappdev'
+                projectName: 'webappdev'
     - task: VSBuild@1
       inputs:
         solution: '$(solution)'
@@ -37,6 +44,6 @@ stages:
             PathtoPublish: '$(Build.ArtifactStagingDirectory)'
             ArtifactName: 'drop'
             publishLocation: 'Container'
-            
-
+   
+    - task: SonarCloudAnalyze@1
     
